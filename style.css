@@ -1,0 +1,76 @@
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+
+    height: 100%;
+
+    font-family: 'Finlandica', sans-serif;
+    font-weight: bold;
+}
+
+.layout {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar {
+    margin: 10px;
+    border-radius: 20px;
+
+    min-width: 300px;
+    width: 30%;
+
+    background: #1c4587;
+
+    height: fit-content;
+}
+
+.map {
+    width: 90%;
+    display: block;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.filter {
+    width: 90%;
+    min-height: 20px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+.content {
+    display: block;
+}
+
+.wide-box {
+    display: block;
+
+    margin: 10px;
+    padding: 10px;
+
+    height: 300px;
+
+    border-style: solid;
+    border-color: #1c4587;
+    border-radius: 20px;
+}
+
+.half-box {
+    display: block;
+
+    margin: 10px;
+    padding: 10px;
+
+    height: 300px;
+
+    border-style: solid;
+    border-color: #1c4587;
+    border-radius: 20px;
+}

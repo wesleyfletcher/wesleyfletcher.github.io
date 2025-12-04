@@ -4,17 +4,43 @@
     <meta charset="UTF-8"/>
     <title>Index</title>
 
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Finlandica:wght@400;700&display=swap">
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
-  <body>
-    <h1>Data viz project</h1>
 
-    <svg id="scatter"></svg>
-    <svg id="bar"></svg>
-    <svg id="mesh"></svg>
+  <body>
+    <h1 style="text-align:center;">Weather Patterns in the Southeast</h1>
+    <div class="layout">
+      <div class="sidebar">
+        <img src="city_map.png" class="map">
+
+        <div id="city-filter" class="filter"></div>
+        <div id="month-filter" class="filter"></div>
+
+      </div>
+
+      <div class="content">
+        <div id="bar-box" class="wide-box">
+          <svg id="bar"></svg>
+        </div>
+
+        <div style="display:flex">
+          <div id="scatter-box" class="half-box">
+            <svg id="scatter"></svg>
+          </div>
+
+          <div id="line-box" class="half-box">
+            <svg id="line"></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <script src="script-scatter.js"></script>
     <script src="script-bar.js"></script>
-    <script src="script-mesh.js"></script>
+    <script src="script-line.js"></script>
   </body>
 </html>

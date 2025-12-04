@@ -1,0 +1,124 @@
+{
+    "line" : [
+        {
+            "city" : "atlanta",
+            "month" : "aug",
+            "temp" : 23.6
+        },
+        {
+            "city" : "atlanta",
+            "month" : "sep",
+            "temp" : 18.9
+        },
+        {
+            "city" : "atlanta",
+            "month" : "oct",
+            "temp" : 19.7
+        },
+        {
+            "city" : "atlanta",
+            "month" : "nov",
+            "temp" : 4.6
+        },
+        {
+            "city" : "birmingham",
+            "month" : "aug",
+            "temp" : 25.0
+        },
+        {
+            "city" : "birmingham",
+            "month" : "sep",
+            "temp" : 21.1
+        },
+        {
+            "city" : "birmingham",
+            "month" : "oct",
+            "temp" : 20.6
+        },
+        {
+            "city" : "birmingham",
+            "month" : "nov",
+            "temp" : 12.3
+        },
+        {
+            "city" : "charleston",
+            "month" : "aug",
+            "temp" : 26.5
+        },
+        {
+            "city" : "charleston",
+            "month" : "sep",
+            "temp" : 17.6
+        },
+        {
+            "city" : "charleston",
+            "month" : "oct",
+            "temp" : 18.0
+        },
+        {
+            "city" : "charleston",
+            "month" : "nov",
+            "temp" : 12.7
+        },
+        {
+            "city" : "greensboro",
+            "month" : "aug",
+            "temp" : 22.7
+        },
+        {
+            "city" : "greensboro",
+            "month" : "sep",
+            "temp" : 12.8
+        },
+        {
+            "city" : "greensboro",
+            "month" : "oct",
+            "temp" : 17.9
+        },
+        {
+            "city" : "greensboro",
+            "month" : "nov",
+            "temp" : 3.6
+        },
+        {
+            "city" : "nashville",
+            "month" : "aug",
+            "temp" : 21.8
+        },
+        {
+            "city" : "nashville",
+            "month" : "sep",
+            "temp" : 19.1
+        },
+        {
+            "city" : "nashville",
+            "month" : "oct",
+            "temp" : 20.6
+        },
+        {
+            "city" : "nashville",
+            "month" : "nov",
+            "temp" : 13.7
+        },
+        {
+            "city" : "newbern",
+            "month" : "aug",
+            "temp" : 24.4
+        },
+        {
+            "city" : "newbern",
+            "month" : "sep",
+            "temp" : 18.2
+        },
+        {
+            "city" : "newbern",
+            "month" : "oct",
+            "temp" : 18.7
+        },
+        {
+            "city" : "newbern",
+            "month" : "nov",
+            "temp" : 10.6
+        }
+    ]
+}
