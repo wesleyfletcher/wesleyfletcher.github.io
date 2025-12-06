@@ -5,7 +5,7 @@ d3.json("./Data/scatter_data.json").then(
         var margin = {
             top: 30,
             bottom: 30,
-            right: 10,
+            right: 30,
             left: 60
         }
 

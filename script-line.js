@@ -5,7 +5,7 @@ d3.json("./Data/line_data.json").then(
         var margin = {
             top: 30,
             bottom: 60,
-            right: 10,
+            right: 30,
             left: 60
         }
 
