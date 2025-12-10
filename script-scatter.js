@@ -65,7 +65,7 @@ d3.json("./Data/scatter_data.json").then(
         svg.append("text")
            .attr("text-anchor", "middle")
            .attr("x", rect.width/2)
-           .attr("y", 15)
+           .attr("y", 30)
            .text("Temperature by Height")
 
         svg.append("text")

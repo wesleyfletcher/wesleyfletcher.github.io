@@ -85,7 +85,7 @@ d3.json("./Data/line_data.json").then(
         svg.append("text")
            .attr("text-anchor", "middle")
            .attr("x", rect.width/2)
-           .attr("y", 15)
+           .attr("y", 30)
            .text("Temperature by Month")
 
         svg.append("text")

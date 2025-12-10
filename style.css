@@ -1,7 +1,4 @@
 body {
-    margin-left: 5%;
-    margin-right: 5%;
-
     height: 100%;
 
     font-family: 'Finlandica', sans-serif;
@@ -40,7 +37,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    background-color: white;
+    background-color: #6c6c6c;
     border-radius: 20px;
 }
 
@@ -79,4 +76,27 @@ body {
     border-radius: 20px;
 
     background-color: #d6d6d6;
+}
+
+.filter-list {
+    list-style-type: square;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 1.5em;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+button:hover {
+    transition: background-color 0.5s;
+    background-color: #1c4587;
 }
