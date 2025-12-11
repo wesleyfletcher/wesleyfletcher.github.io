@@ -47,7 +47,7 @@ d3.json("./Data/scatter_data.json").then(
             .attr("r", 3)
             .attr("fill", d => colors[d.city])
             .attr("opacity", 0.5)
-            // .style("cursor", "pointer")
+            .style("cursor", "pointer")
             // .on("click", handlePointClick);
 
         var xAxisGen = d3.axisBottom().scale(xScale)
@@ -112,7 +112,7 @@ d3.json("./Data/scatter_data.json").then(
 
         d3.selectAll("circle").on('mouseover', function(event, d){
             d3.select(event.target)
-            .attr("stroke", "black")
+            .attr("stroke", "#1c4857")
         })
 
         d3.selectAll("circle").on('mouseout', function(event){
