@@ -10,13 +10,11 @@ d3.json("./Data/scatter_data.json").then(
         }
 
         var box = d3.select("#scatter-box")
-
         var rect = box.node().getBoundingClientRect()
-        console.log(rect)
 
         var svg = d3.select("#scatter")
-                    .style("width", rect.width)
-                    .style("height", rect.height)
+                    .attr("width", rect.width)
+                    .attr("height", rect.height)
 
         var maxHeight = d3.max(points, d => d.height)
 
@@ -41,7 +39,7 @@ d3.json("./Data/scatter_data.json").then(
         }
         
         // Drawing the scatterplot
-        const scatterplot = svg.selectAll("circle")
+        svg.selectAll("circle")
             .data(points)
             .join("circle")
             .attr("cx", d => xScale(d.height))
@@ -62,23 +60,64 @@ d3.json("./Data/scatter_data.json").then(
                         .call(yAxisGen)
                         .style("transform", `translateX(${margin.left}px)`)
 
-        svg.append("text")
-           .attr("text-anchor", "middle")
-           .attr("x", rect.width/2)
-           .attr("y", 30)
-           .text("Temperature by Height")
+        var title = svg.append("text")
+                       .attr("text-anchor", "middle")
+                       .attr("x", rect.width/2)
+                       .attr("y", 30)
+                       .attr("font-size", "1vw")
+                       .text("Temperature by Height")
 
-        svg.append("text")
-           .attr("text-anchor", "end")
-           .attr("x", rect.width - 20)
-           .attr("y", yScale(0) + 40)
-           .text("Height (km)")
+        var xLabel = svg.append("text")
+                        .attr("text-anchor", "end")
+                        .attr("x", rect.width - 20)
+                        .attr("y", yScale(0) + 40)
+                        .attr("font-size", "1vw")
+                        .text("Height (km)")
 
-        svg.append("text")
-           .attr("text-anchor", "end")
-           .attr("x", -100)
-           .attr("y", 20)
-           .attr("transform", "rotate(-90)")
-           .text("Temperature (C)");
+        var yLabel = svg.append("text")
+                        .attr("text-anchor", "end")
+                        .attr("x", -rect.height/3)
+                        .attr("y", 20)
+                        .attr("font-size", "1vw")
+                        .attr("transform", "rotate(-90)")
+                        .text("Temperature (C)");
+
+        function resize_scatter() {
+            var rect = box.node().getBoundingClientRect()
+            
+            svg.attr("width", rect.width)
+               .attr("height", rect.height)
+
+            xScale.range([margin.left, rect.width - margin.right])
+            yScale.range([rect.height - margin.bottom, margin.top])
+
+            svg.selectAll("circle")
+                .attr("cx", d => xScale(d.height))
+                .attr("cy", d => yScale(d.temp))
+
+            xAxis.call(xAxisGen)
+                 .style("transform", `translateY(${yScale(0)}px)`)
+
+            yAxis.call(yAxisGen)
+                 .style("transform", `translateX(${margin.left}px)`)
+
+            title.attr("x", rect.width/2)
+            xLabel.attr("x", rect.width - 20)
+                  .attr("y", yScale(0) + 40)
+            yLabel.attr("x", -rect.height/3)
+        };
+
+        window.addEventListener("resize", resize_scatter);
+        resize_scatter();
+
+        d3.selectAll("circle").on('mouseover', function(event, d){
+            d3.select(event.target)
+            .attr("stroke", "black")
+        })
+
+        d3.selectAll("circle").on('mouseout', function(event){
+            d3.select(event.target)
+            .attr("stroke", "none")
+        })
     }
 )

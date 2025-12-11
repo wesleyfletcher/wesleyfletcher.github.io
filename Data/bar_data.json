@@ -2,122 +2,122 @@
     "bars" : [
         {
             "city" : "atlanta",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 30.425395656974604
         },
         {
             "city" : "atlanta",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 21.895544362650135
         },
         {
             "city" : "atlanta",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 15.415758213668145
         },
         {
             "city" : "atlanta",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 9.93031575672733
         },
         {
             "city" : "birmingham",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 27.223825104104698
         },
         {
             "city" : "birmingham",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 21.448658063494577
         },
         {
             "city" : "birmingham",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 17.49702752293578
         },
         {
             "city" : "birmingham",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 11.615851192883138
         },
         {
             "city" : "charleston",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 27.060686015831134
         },
         {
             "city" : "charleston",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 17.97474302496329
         },
         {
             "city" : "charleston",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 17.28718103578439
         },
         {
             "city" : "charleston",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 6.133757442296713
         },
         {
             "city" : "greensboro",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 66.27441785252265
         },
         {
             "city" : "greensboro",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 17.282871601338023
         },
         {
             "city" : "greensboro",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 22.63308599695586
         },
         {
             "city" : "greensboro",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 11.42496426869938
         },
         {
             "city" : "nashville",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 32.99060859276788
         },
         {
             "city" : "nashville",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 17.37789873984043
         },
         {
             "city" : "nashville",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 11.985170129479073
         },
         {
             "city" : "nashville",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 17.5114608801956
         },
         {
             "city" : "newbern",
-            "month" : "8",
+            "month" : "aug",
             "humidity" : 36.27747957992999
         },
         {
             "city" : "newbern",
-            "month" : "9",
+            "month" : "sep",
             "humidity" : 18.21166808708453
         },
         {
             "city" : "newbern",
-            "month" : "10",
+            "month" : "oct",
             "humidity" : 25.470077661032434
         },
         {
             "city" : "newbern",
-            "month" : "11",
+            "month" : "nov",
             "humidity" : 6.5885117070404275
         }
     ]
