@@ -1,7 +1,6 @@
 d3.json("./Data/line_data.json").then(
     function(data) {
         var line = data['line']
-
         var margin = {
             top: 30,
             bottom: 60,
@@ -10,12 +9,9 @@ d3.json("./Data/line_data.json").then(
         }
 
         var box = d3.select("#line-box")
-
         var rect = box.node().getBoundingClientRect()
 
         var svg = d3.select("#line")
-                    .attr("width", rect.width)
-                    .attr("height", rect.height)
 
         var minTemp = d3.min(line, d => d.temp)
         var maxTemp = d3.max(line, d => d.temp)
@@ -25,11 +21,9 @@ d3.json("./Data/line_data.json").then(
 
         var xScale = d3.scaleOrdinal()
                        .domain(["aug", "sep", "oct", "nov"])
-                       .range([xLeft, (2*xLeft+xRight)/3, (xLeft+2*xRight)/3, xRight])
 
         var yScale = d3.scaleLinear()
-                    .domain([minTemp-1, maxTemp+1])
-                    .range([rect.height - margin.bottom, margin.top])
+                       .domain([minTemp-1, maxTemp+1])
 
         const colors = {
             "atlanta"    : "#00fff3",
@@ -48,57 +42,41 @@ d3.json("./Data/line_data.json").then(
             })
         )
 
-        const lineGen = d3.line()
-                          .x(d => xScale(d.month))
-                          .y(d => yScale(d.temp));
-
         svg.selectAll(".line")
             .data(cities)
             .join("path")
             .attr("class", "line")
-            .attr("d", d => lineGen(d.values))
             .attr("fill", "none")
             .attr("stroke", d => colors[d.city])
             .attr("stroke-width", 2)
         
-        // Drawing the lineplot
         svg.selectAll("circle")
             .data(line)
             .join("circle")
-            .attr("cx", d => xScale(d.month))
-            .attr("cy", d => yScale(d.temp))
+            .attr("id", d => (d.city + " " + d.month))
             .attr("r", 5)
             .attr("fill", d => colors[d.city])
-            // .style("cursor", "pointer")
-            // .on("click", handlePointClick);
+            .style("cursor", "pointer")
 
         var xAxisGen = d3.axisBottom().scale(xScale)
         var xAxis = svg.append("g")
-                       .call(xAxisGen)
-                       .style("transform", `translateY(${rect.height-margin.bottom}px)`)
 
         var yAxisGen = d3.axisLeft().scale(yScale)
         var yAxis = svg.append("g")
-                        .call(yAxisGen)
-                        .style("transform", `translateX(${margin.left}px)`)
 
         var title = svg.append("text")
                        .attr("text-anchor", "middle")
-                       .attr("x", rect.width/2)
                        .attr("y", 30)
                        .attr("font-size", "1vw")
                        .text("Temperature by Month")
 
         var xLabel = svg.append("text")
                         .attr("text-anchor", "middle")
-                        .attr("x", rect.width/2+20)
-                        .attr("y", rect.height-25)
                         .attr("font-size", "1vw")
                         .text("Month")
 
         var yLabel = svg.append("text")
                         .attr("text-anchor", "end")
-                        .attr("x", -rect.height/3)
                         .attr("y", 20)
                         .attr("font-size", "1vw")
                         .attr("transform", "rotate(-90)")
@@ -139,5 +117,14 @@ d3.json("./Data/line_data.json").then(
 
         window.addEventListener("resize", resize_line);
         resize_line();
+
+        d3.selectAll("circle")
+        .on("mouseover", function() {
+            const input = d3.select(this).attr("id").split(" ")
+            handleHover(city=input[0], month=input[1]);
+        })
+        .on('mouseout', function(){
+            handleHover();
+        });
     }
 )

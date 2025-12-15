@@ -103,7 +103,12 @@ button:hover {
     background-color: #1c4587;
 }
 
-iframe {
-    display: block;
-    margin: 20px auto;
+rect {
+    transition: opacity 0.5s;
+}
+circle {
+    transition: stroke-width 0.5s, opacity 0.5s;
+}
+line {
+    transition: opacity 0.5s;
 }

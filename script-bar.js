@@ -1,7 +1,6 @@
 d3.json("./Data/bar_data.json").then(
     function(data) {
         var bars = data['bars']
-
         var margin = {
             top: 40,
             bottom: 40,
@@ -26,38 +25,24 @@ d3.json("./Data/bar_data.json").then(
 
         var box = d3.select("#bar-box")
         var rect = box.node().getBoundingClientRect()
-
-        var bandwidth = 0.8*(rect.width-margin.left) / maxPos;
-
         var svg = d3.select("#bar")
-                    .style("width", rect.width)
-                    .style("height", rect.height)
 
-        const xBar = d3.scaleLinear()
+        var xBar = d3.scaleLinear()
                        .domain([0, maxPos])
-                       .range([margin.left, rect.width - margin.right]);
-
-        const yBar = d3.scaleLinear()
+        var yBar = d3.scaleLinear()
                        .domain([0, d3.max(bars, d => d.humidity)])
-                       .range([rect.height - margin.bottom, margin.top]);
 
         svg.selectAll("rect")
            .data(bars)
            .join("rect")
-           .attr("x", d => xBar(xPos(d.city, d.month)) - bandwidth/2)
-           .attr("y", d => yBar(d.humidity))
-           .attr("width", bandwidth)
-           .attr("height", d => rect.height - margin.bottom - yBar(d.humidity))
+           .attr("id", d => (d.city + " " + d.month))
            .attr("fill", d => colors[d.city])
            .style("cursor", "pointer")
-        //    .on("click", handleBarClick);
 
         svg.selectAll("text")
            .data(bars)
            .join("text")
            .attr("class", "barlabel")
-           .attr("x", -rect.height+margin.bottom-20)
-           .attr("y", d => xBar(xPos(d.city, d.month)) + bandwidth/4)
            .attr("text-anchor", "middle")
            .attr("transform", "rotate(-90)")
            .attr("font-size", "1vw")
@@ -68,26 +53,19 @@ d3.json("./Data/bar_data.json").then(
                          .scale(xBar)
                          .tickFormat("")
                          .tickSize(0)
-                        
         var xAxis = svg.append("g")
-                       .call(xAxisGen)
-                       .style("transform", `translateY(${rect.height-margin.bottom}px)`)
 
         var yAxisGen = d3.axisLeft().scale(yBar).ticks(5)
         var yAxis = svg.append("g")
-                        .call(yAxisGen)
-                        .style("transform", `translateX(${margin.left-20}px)`)
 
         var title = svg.append("text")
                        .attr("text-anchor", "middle")
-                       .attr("x", rect.width/2)
                        .attr("y", 20)
                        .attr("font-size", "1vw")
                        .text("Relative Humidity over Time")
 
         var yLabel = svg.append("text")
                         .attr("text-anchor", "end")
-                        .attr("x", -rect.height/3)
                         .attr("y", 20)
                         .attr("font-size", "1vw")
                         .attr("transform", "rotate(-90)")
@@ -99,7 +77,7 @@ d3.json("./Data/bar_data.json").then(
             svg.attr("width", rect.width)
                .attr("height", rect.height)
 
-            var bandwidth = 0.8*(rect.width-margin.left) / maxPos;
+            var bandwidth = (rect.width-margin.left) / maxPos;
         
             xBar.range([margin.left, rect.width - margin.right]);
             yBar.range([rect.height - margin.bottom, margin.top]);
@@ -107,8 +85,10 @@ d3.json("./Data/bar_data.json").then(
             svg.selectAll("rect")
                 .attr("x", d => xBar(xPos(d.city, d.month)) - bandwidth/2)
                 .attr("y", d => yBar(d.humidity))
-                .attr("width", bandwidth)
-                .attr("height", d => rect.height - margin.bottom - yBar(d.humidity));
+                .attr("width", 0.9*bandwidth)
+                .attr("height", d => rect.height - margin.bottom - yBar(d.humidity) + 0.05*bandwidth)
+                .attr("stroke", "#d6d6d6")
+                .attr("stroke-width", 0.1*bandwidth);
 
             svg.selectAll(".barlabel")
                 .attr("x", -rect.height+margin.bottom-20)
@@ -127,17 +107,13 @@ d3.json("./Data/bar_data.json").then(
         window.addEventListener("resize", resize_bar);
         resize_bar();
 
-        d3.selectAll("rect").on('mouseover', function(event){
-            d3.select(event.target)
-            .attr("stroke", "#1c4587")
-            .attr("stroke-width", "2px")
-            .style("transition", "stroke-width 1s")
+        d3.selectAll("rect")
+        .on("mouseover", function() {
+            const input = d3.select(this).attr("id").split(" ")
+            handleHover(city=input[0], month=input[1]);
         })
-
-        d3.selectAll("rect").on('mouseout', function(event){
-            d3.select(event.target)
-            .attr("stroke-width", "0px")
-            .style("transition", "stroke-width 0.2s")
-        })
+        .on('mouseout', function(){
+            handleHover();
+        });
     }
 )
