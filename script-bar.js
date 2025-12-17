@@ -71,7 +71,7 @@ d3.json("./Data/bar_data.json").then(
                         .attr("transform", "rotate(-90)")
                         .text("Relative Humidity (%)");
 
-        function resize_bar() {
+        function resizeBar() {
             var rect = box.node().getBoundingClientRect()
             
             svg.attr("width", rect.width)
@@ -104,8 +104,8 @@ d3.json("./Data/bar_data.json").then(
             yLabel.attr("x", -rect.height/4)
         };
 
-        window.addEventListener("resize", resize_bar);
-        resize_bar();
+        window.addEventListener("resize", resizeBar);
+        resizeBar();
 
         d3.selectAll("rect")
         .on("mouseover", function() {
@@ -114,6 +114,9 @@ d3.json("./Data/bar_data.json").then(
         })
         .on('mouseout', function(){
             handleHover();
-        });
+        })
+        .on('click', function(){
+        
+        })
     }
 )

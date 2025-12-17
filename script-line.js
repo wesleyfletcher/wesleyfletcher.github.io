@@ -82,7 +82,7 @@ d3.json("./Data/line_data.json").then(
                         .attr("transform", "rotate(-90)")
                         .text("Temperature (C)");
 
-        function resize_line() {
+        function resizeLine() {
             var rect = box.node().getBoundingClientRect()
             
             svg.attr("width", rect.width)
@@ -115,8 +115,8 @@ d3.json("./Data/line_data.json").then(
             yLabel.attr("x", -rect.height/3)
         };
 
-        window.addEventListener("resize", resize_line);
-        resize_line();
+        window.addEventListener("resize", resizeLine);
+        resizeLine();
 
         d3.selectAll("circle")
         .on("mouseover", function() {

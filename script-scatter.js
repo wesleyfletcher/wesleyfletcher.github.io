@@ -64,7 +64,7 @@ d3.json("./Data/scatter_data.json").then(
                         .attr("transform", "rotate(-90)")
                         .text("Temperature (C)");
 
-        function resize_scatter() {
+        function resizeScatter() {
             var rect = box.node().getBoundingClientRect()
             
             svg.attr("width", rect.width)
@@ -89,8 +89,8 @@ d3.json("./Data/scatter_data.json").then(
             yLabel.attr("x", -rect.height/3)
         };
 
-        window.addEventListener("resize", resize_scatter);
-        resize_scatter();
+        window.addEventListener("resize", resizeScatter);
+        resizeScatter();
 
         d3.selectAll("circle").on('mouseover', function(event,d){
             const input = d3.select(this).attr("id").split(" ")
